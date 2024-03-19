@@ -57,6 +57,11 @@ class VisitOneMulti(VisitMulti):
     def visit(self: VisitOneMulti, n: One):
         print(n.name)
 
+    # uncomment to resolve the issue.
+    # @multimethod
+    # def visit(self: VisitOneMulti, n: Two):
+    #     super().visit(n)
+
 
 def main():
     one = One()
@@ -68,7 +73,7 @@ def main():
     v_multi = VisitOneMulti()
     one.accept(v_multi)
     # raises an error
-    # two.accept(v_multi)
+    two.accept(v_multi)
 
 
 if __name__ == "__main__":
